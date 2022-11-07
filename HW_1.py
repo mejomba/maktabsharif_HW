@@ -1,6 +1,6 @@
 # =================== HW 1 ===================
 # =================== q1 ===================
-vowels = ['a', 'e', 'o', 'i', 'u']
+vowels = 'aeoiu'
 user_input = input()
 user_input = user_input.replace(' ', '') # remove all spaces
 
