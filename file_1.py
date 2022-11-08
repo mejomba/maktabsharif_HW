@@ -1,14 +1,9 @@
-inp = input()
-
-print(inp)
-
-letters = 0
-digits = 0
-
-for ch in inp:
-    if ch.isnumeric():
-        digits += 1
-    elif ch.isalpha():
-        letters += 1
-
-print(f"letters: {letters} \ndigits: {digits}")
+def loop(number):
+    print (number)
+    if not number:
+        return
+    if number > 0:
+        loop(number - 1)
+    else:
+        loop(number + 1)
+loop(995)
