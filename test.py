@@ -151,21 +151,29 @@ from _md5 import md5
 #
 # print(tuple_dict_converter(a_l_of_tuple))
 
-from math import factorial
-
-# input n
-m = 0
-n = 5
-for i in range(n):
-    # for j in range(n - i + 1):
-    #     for left spacing
-        # print(end=" ")
-
-    for j in range(i + 1):
-        # nCr = n!/((n-r)!*r!)
-        print(factorial(i) // (factorial(j) * factorial(i - j)), end=" ")
-
-    # for new line
-    print()
-print(id(n))
-print(id(m))
+# from math import factorial
+#
+# # input n
+# m = 0
+# n = 5
+# for i in range(n):
+#     # for j in range(n - i + 1):
+#     #     for left spacing
+#         # print(end=" ")
+#
+#     for j in range(i + 1):
+#         # nCr = n!/((n-r)!*r!)
+#         print(factorial(i) // (factorial(j) * factorial(i - j)), end=" ")
+#
+#     # for new line
+#     print()
+# print(id(n))
+# print(id(m))
+a = ['1', ['2'], '3', '3']
+x = set(a)
+print(x)
+# from hashlib import sha256
+# print(sha256('1'.encode('utf-8')).hexdigest())
+# print(sha256('2'.encode('utf-8')).hexdigest())
+# print(sha256('3'.encode('utf-8')).hexdigest())
+# print(sha256('3'.encode('utf-8')).hexdigest())
