@@ -97,5 +97,75 @@ from _md5 import md5
 # print(x)
 # 1d7ae6ca9e689a549f4f47ba797e73dd9506182111a8e4157ad0945ca6ee419f
 # 09b6f1b098ba521ff3492b1105974cc888d75d37d8457814123bf8cfc11e572f
-print('hello')
+# n = int(input())
+# x = lambda n: not [i for i in range(2, n) if not (n%i)]
+# y = lambda N: [i for i in range(2, N+1) if x(i)]
+# print(y(n))
 
+# def is_primal(n):
+#     n = int(n)
+#     assert n > 0
+#     for i in range(2, int(n**0.5)+1):
+#         if not (n % i):
+#             return False
+#     return True
+#
+# l = list(map(lambda x: is_primal(x), range(2, 12)))
+# print(l)
+# print(any(l), all(l))
+
+# s1 = list(range(10))
+# s2 = "hello ali!"
+# x1 = zip(s1, s2)
+# x2 = enumerate(s2)
+# x = list(x1)
+# y = list(x2)
+# print(x == y)
+# print(list(x1))
+# print(y)
+
+# s = '1 - hellow / n2 - 5 +'\
+#     '3 hello'
+# x = list(filter(lambda x: not x.isalpha(),s))
+# print(x)
+# x = list(reversed(x))
+# print(x)
+# x = [str(ord(c)) if c.isnumeric() else c for c in x if c != ' ']
+# print(x)
+# x = ''.join(x)
+# print(x)
+# x = eval(x)
+# print(x)
+# x = round(x, 3)
+# print(x)
+# x = hex(int(x*10))
+# print(x)
+
+# a_dict = {'a': 1, 'b': 2}
+# a_l_of_tuple = [('a', 1), ('b', 2)]
+# def tuple_dict_converter(data):
+#     if isinstance(data, dict):
+#         return list(map(lambda item: item, data.items()))
+#     else:
+#         return dict(map(lambda item: item ,data))
+#
+# print(tuple_dict_converter(a_l_of_tuple))
+
+from math import factorial
+
+# input n
+m = 0
+n = 5
+for i in range(n):
+    # for j in range(n - i + 1):
+    #     for left spacing
+        # print(end=" ")
+
+    for j in range(i + 1):
+        # nCr = n!/((n-r)!*r!)
+        print(factorial(i) // (factorial(j) * factorial(i - j)), end=" ")
+
+    # for new line
+    print()
+print(id(n))
+print(id(m))
