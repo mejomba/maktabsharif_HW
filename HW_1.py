@@ -21,6 +21,7 @@ for ch in vowels: # replace vowel words with "."
 
 print(user_input)
 # Mohammad Amin Tehrani >>> m.H.MM.D.M.Nt.HR.N.
+
 # =================== q2 ===================
 for row in range(1, 6):
     for col in range((5-row)+1, 0, -1):
@@ -50,18 +51,18 @@ print(out)
 
 # =================== q4 ===================
 user_input = int(input())
-print(user_input[::-1]) # firs way
+print(str(user_input)[::-1]) # firs way
 
 # second way
 # out = [*str(user_input)][::-1]
 # print(*out, sep='')
 
 # third way
-# result = 0
-# while user_input > 0:
-#     result += (user_input % 10) * 10** (len(str(user_input)) -1)
-#     user_input = user_input // 10
-# print(result)
+result = 0
+while user_input > 0:
+    result += (user_input % 10) * 10** (len(str(user_input)) -1)
+    user_input = user_input // 10
+print(result)
 
 # =================== q5 ===================
 # admin admin >>> Welcome on Admin
