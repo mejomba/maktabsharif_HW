@@ -177,6 +177,17 @@ from _md5 import md5
 # print(sha256('2'.encode('utf-8')).hexdigest())
 # print(sha256('3'.encode('utf-8')).hexdigest())
 # print(sha256('3'.encode('utf-8')).hexdigest())
-a = ''
-b = 'a'
-print(a == (not b))
+def palindrom(s):
+    if s == s[::-1]:
+        print('palindrome')
+    else:
+        print('not palindrome')
+
+
+def show_employee(name, salary=9000):
+    print(f'name: {name} salary: {salary}')
+
+
+name = 'jafar'
+salary = 25000
+show_employee(name)
