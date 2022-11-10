@@ -184,10 +184,18 @@ def palindrom(s):
         print('not palindrome')
 
 
-def show_employee(name, salary=9000):
-    print(f'name: {name} salary: {salary}')
+# def show_employee(name, salary=9000):
+#     print(f'name: {name} salary: {salary}')
+#
+#
+# name = 'jafar'
+# salary = 25000
+# show_employee(name)
 
-
-name = 'jafar'
-salary = 25000
-show_employee(name)
+def func(*args):
+    for i in args:
+        print(i)
+my_list = list(range(3))
+func(*my_list)
+num = [1,2,3,4]
+# print(list(map(lambda x: int(x) (if int(x) % 2 == 0) , num)))
