@@ -169,11 +169,14 @@ from _md5 import md5
 #     print()
 # print(id(n))
 # print(id(m))
-a = ['1', ['2'], '3', '3']
-x = set(a)
-print(x)
+# a = ['1', ['2'], '3', '3']
+# x = set(a)
+# print(x)
 # from hashlib import sha256
 # print(sha256('1'.encode('utf-8')).hexdigest())
 # print(sha256('2'.encode('utf-8')).hexdigest())
 # print(sha256('3'.encode('utf-8')).hexdigest())
 # print(sha256('3'.encode('utf-8')).hexdigest())
+a = ''
+b = 'a'
+print(a == (not b))
