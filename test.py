@@ -199,3 +199,15 @@ my_list = list(range(3))
 func(*my_list)
 num = [1,2,3,4]
 # print(list(map(lambda x: int(x) (if int(x) % 2 == 0) , num)))
+
+num = ((1,2,3,4),(20,30,5,4))
+# for j in range(len(num[0])):
+#     x = 0
+#     for i in num:
+#         x += i[j]
+#     print(x/len(num))
+for j in range(len(num[0])):
+    # x = 0
+    avg = sum(map(lambda x: x[j], num))/len(num)
+    print(avg)
+    # map(lambda y: y,range(len(num[0])))
