@@ -177,6 +177,8 @@ from _md5 import md5
 # print(sha256('2'.encode('utf-8')).hexdigest())
 # print(sha256('3'.encode('utf-8')).hexdigest())
 # print(sha256('3'.encode('utf-8')).hexdigest())
+
+
 def palindrom(s):
     if s == s[::-1]:
         print('palindrome')
@@ -197,8 +199,7 @@ def func(*args):
         print(i)
 my_list = list(range(3))
 func(*my_list)
-num = [1,2,3,4]
-# print(list(map(lambda x: int(x) (if int(x) % 2 == 0) , num)))
+
 
 num = ((1,2,3,4),(20,30,5,4))
 # for j in range(len(num[0])):
@@ -210,4 +211,3 @@ for j in range(len(num[0])):
     # x = 0
     avg = sum(map(lambda x: x[j], num))/len(num)
     print(avg)
-    # map(lambda y: y,range(len(num[0])))
