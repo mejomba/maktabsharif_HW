@@ -1,5 +1,4 @@
 from math import factorial
-
 print(factorial(10))
 
 def fact(x):

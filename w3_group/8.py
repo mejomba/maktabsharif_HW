@@ -12,7 +12,4 @@ def ispower(x,y):
         x = x / y
     return True if x == 1 else False
 
-
-
-
 print(ispower(15,2))
