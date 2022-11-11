@@ -194,20 +194,86 @@ def palindrom(s):
 # salary = 25000
 # show_employee(name)
 
-def func(*args):
-    for i in args:
-        print(i)
-my_list = list(range(3))
-func(*my_list)
+# def func(*args):
+#     for i in args:
+#         print(i)
+# my_list = list(range(3))
+# func(*my_list)
 
 
-num = ((1,2,3,4),(20,30,5,4))
+# num = ((1,2,3,4),(20,30,5,4))
 # for j in range(len(num[0])):
 #     x = 0
 #     for i in num:
 #         x += i[j]
 #     print(x/len(num))
-for j in range(len(num[0])):
-    # x = 0
-    avg = sum(map(lambda x: x[j], num))/len(num)
-    print(avg)
+# for j in range(len(num[0])):
+#     # x = 0
+#     avg = sum(map(lambda x: x[j], num))/len(num)
+#     print(avg)
+# data = range(1000_000)
+# print(list(filter(lambda x: True if x%1000==0 else False, data)))
+# data = (1,3,2)
+# from functools import reduce
+# print(reduce(lambda x, y: x + y, data ))
+
+# data = [1,3,5,6]
+# for i, j in enumerate(data, start=10):
+#     print(i, j)
+
+#
+# '''Get the index and the value as a tuple for items in the
+# list ["hi", 4, 8.99, 'apple', ('t,b','n')].
+# Result would look like [(index, value), (index, value)]'''
+#
+# data = ["hi", 4, 8.99, 'apple', ('t,b','n')]
+# out = [(idx, value) for idx, value in enumerate(data)]
+# print(out)
+#
+# sentence = "on a summer day somner smith went simming in the sun and his red skin stung"
+# data = sentence.split(' ')
+#
+# out1 = list(filter(lambda x: len(x)>= 4,data))
+# out2 = list(filter(lambda x: len(x)< 4,data))
+# print(out1)
+# print(out2)
+#
+#
+# data = {'T-shirt':45.5, 'Pants':35, 'Sneakers':41.30, 'Hat':55, 'Backpack': 24}
+# def top3(d):
+#     # sorted_dict = {k: v for k, v in sorted(d.items(), key=lambda x: x[1])}
+#     sorted_dict = dict(sorted(d.items(), key=lambda x: x[1]))
+#     print(sorted_dict)
+#     dic = dict()
+#     for i in range(3):
+#         a, b = sorted_dict.popitem()
+#         dic[a] = b
+#     return dic
+#
+# # print(top3(data))
+# #########
+#
+# lst1=["Mike", "Danny", "Jim", "Annie"]
+# lst2=[4, 12, 7, 19]
+#
+# data = list(zip(lst1, lst2))
+# print(data)
+# sorted_data = sorted(data)
+# print(sorted_data)
+#
+#
+# from string import ascii_lowercase
+# data = "The quick brown fox jumps over the lazy og"
+#
+# def pangram(s):
+#     alphabet = ascii_lowercase
+#     for i in alphabet:
+#         if i  not in s.lower():
+#             return False
+#     return True
+#
+# print(pangram(data))
+
+data = {'jafar': 'dd'}
+data.pop('jafar')
+print(data)
