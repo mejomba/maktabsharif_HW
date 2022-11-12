@@ -274,6 +274,45 @@ def palindrom(s):
 #
 # print(pangram(data))
 
-data = {'jafar': 'dd'}
-data.pop('jafar')
-print(data)
+# data = {'jafar': 'dd'}
+# data.pop('jafar')
+# print(data)
+
+# from datetime import datetime
+# import time
+
+# class Person():
+#     class_public_var = 'class_public_var'
+#     __class_private_var = '__class_private_var'
+#
+#     def __init__(self, name, famili):
+#         self.name = name
+#         self.__famili = famili
+#
+#     def public_method(self):
+#         print('public method', self.__famili)
+#
+#     def __private_method(self):
+#         print('private method', self.__famili)
+#
+#     def get_famili(self):
+#         log_file = open('text.txt', 'a')
+#         print(f'{datetime.now()}: {self.name} {self.__famili}', file=log_file, flush=True)
+#         log_file.close()
+#         return self.__famili
+#
+#     def set_name(self, value):
+#         self.class_public_var = value
+#
+#
+# p = Person('mojtaba', 'aminzadeh')
+# d = Person('mamad', 'ahamadi')
+# print(p.class_public_var)
+# print(d.class_public_var)
+# p.set_name('jafar')
+# print(p.class_public_var)
+# print(d.class_public_var)
+from functools import reduce
+from string import digits
+s = '1155522333222233'
+print('3'>'2')
