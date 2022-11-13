@@ -1,6 +1,6 @@
 from string import printable
 
-data = 'www.google.com'
+data = '''www.google.com'''
 out = {}
 
 for ch in printable:
@@ -8,3 +8,4 @@ for ch in printable:
         out[ch] = data.count(ch)
 
 print(out)
+

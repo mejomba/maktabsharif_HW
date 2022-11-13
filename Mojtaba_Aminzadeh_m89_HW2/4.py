@@ -24,6 +24,7 @@ while data != history:
     history = data
     data = sort_number(count_number(data) + unique_number(data))
     sleep(0.5)
+# output
 # 442254545
 # 223445
 # 222345

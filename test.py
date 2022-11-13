@@ -314,5 +314,5 @@ def palindrom(s):
 # print(d.class_public_var)
 from functools import reduce
 from string import digits
-s = '1155522333222233'
-print('3'>'2')
+# s = '1155522333222233'
+# print('3'>'2')

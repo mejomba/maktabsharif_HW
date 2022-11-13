@@ -1,13 +1,20 @@
-my_dict = {
-    'key1': 'value1',
-    'key2': 'value2'
-}
+def name():
+    return 'mojtaab'
 
 
-new_dict = dict(map(lambda key: (my_dict[key], key), my_dict.keys()))
-print(new_dict)
+def arange(n):
+    while n > 0:
+        yield n
+        n -= 1
 
-# new_dict = {}
-# for k,v in my_dict.items():
-#     new_dict[v] = k
-# print(new_dict)
+# for i in arange(3):
+#     print(i)
+
+# even = [x for x in range(10) if x % 2 == 0]
+even = (x for x in range(10) if x % 2 == 0)
+print(even)
+for i in even:
+    print(i)
+print()
+for j in even:
+    print(j)
