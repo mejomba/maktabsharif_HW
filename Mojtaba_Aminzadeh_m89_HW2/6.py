@@ -8,4 +8,3 @@ for ch in printable:
         out[ch] = data.count(ch)
 
 print(out)
-

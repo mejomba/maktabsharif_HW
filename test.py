@@ -316,3 +316,23 @@ from functools import reduce
 from string import digits
 # s = '1155522333222233'
 # print('3'>'2')
+import time
+data = [1, 2, -20, -1, 0]
+def solution(array):
+    max_index = len(array) - 1
+    jump = 0
+    idx = 0
+    history = []
+    while not (idx > max_index):
+        if idx < 0:
+            return -1
+        history.append(idx)
+        print(history, idx)
+        idx = array[idx] + idx
+        if idx in history:
+            return -1
+        jump += 1
+        time.sleep(1)
+    return jump
+
+print(solution(data))
