@@ -369,18 +369,21 @@ from string import digits
 # finally:
 #     print('finally')
 
-
+#
 # def outer(x):
-#     def inner(y):
-#         return x(y).upper()
+#     def inner():
+#         print('hellow')
+#         x()
 #     return inner
 #
 #
-# @outer
-# def name(esm):
-#     return esm
+# # @outer
+# def name():
+#     print('hello')
 #
-# print(name('mojtaba'))
+# p = outer(name)
+# p()
+#
 
 #
 # def number():
@@ -513,3 +516,43 @@ import itertools
 # print(ord(printable[99]))
 # print(ord('\t'))
 # print(chr(12), file=file)
+
+# class A():
+#     pass
+#
+#
+# def abc():
+#     yield 'jafar'
+#
+# x = abc()
+
+# from types import MappingProxyType, AsyncGeneratorType, BuiltinFunctionType,GeneratorType, FunctionType
+# print(MappingProxyType)
+# print(type(A.__dict__) == MappingProxyType)
+# print(AsyncGeneratorType)
+# print(BuiltinFunctionType == type(max))
+# print(type(abc()) == GeneratorType)
+import time
+
+
+
+
+# data = {'asdfsad': 'val1',
+#         'key': 'val2'
+#         }
+# file = open('text2.txt', 'w')
+# # file.write('data')
+# file.writelines(data)
+
+
+# try:
+#   print(1 / 0)
+# except ZeroDivisionError:
+#   raise ValueError
+# assert 1+2==5
+# iter()
+from random import randint
+from functools import partial
+x = partial(randint, 5, 10)
+print(x)
+print(randint(5, 10))

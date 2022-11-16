@@ -2,8 +2,8 @@
 # =================== q2 ===================
 """ author: Mojtaba Aminzadeh """
 
-for row in range(1, 6):
-    for col in range((5-row)+1, 0, -1):
+for row in range(1, 7):
+    for col in range((6-row)+1, 0, -1):
         print(col, end=" ")
     print()
 

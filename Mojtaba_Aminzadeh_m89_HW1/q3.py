@@ -2,7 +2,7 @@
 # =================== q3 ===================
 """ author: Mojtaba Aminzadeh """
 
-data = [1, 2, 2, 'sds4', 3, 3, 'sds4', 5]
+data = [1, 2, 2, 'sds4', [3, 3], 'sds4', 5]
 out = [*set(data)] # first (don't support unhashable type)
 # out = [*dict.fromkeys(data)] # second (don't support unhashable type)
 # out = list(set(data)) # third (don't support unhashable type)
