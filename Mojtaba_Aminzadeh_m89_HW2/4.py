@@ -17,7 +17,7 @@ def sort_number(numbers):
     return reduce(lambda x, y: x + y, sorted(numbers))
 
 
-data = '442254545'
+data = ''
 history = None
 while data != history:
     print(data)

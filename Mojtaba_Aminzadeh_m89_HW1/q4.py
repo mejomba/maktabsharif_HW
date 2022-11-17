@@ -3,7 +3,7 @@
 """ author: Mojtaba Aminzadeh """
 
 user_input = int(input())
-# print(str(user_input)[::-1]) # firs way
+print(int(str(user_input)[::-1])) # firs way
 
 # second way
 # out = [*str(user_input)][::-1]

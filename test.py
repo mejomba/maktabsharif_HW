@@ -551,8 +551,51 @@ import time
 #   raise ValueError
 # assert 1+2==5
 # iter()
-from random import randint
-from functools import partial
-x = partial(randint, 5, 10)
-print(x)
-print(randint(5, 10))
+# from random import randint
+# from functools import partial
+# x = partial(randint, 5, 10)
+# print(x)
+# print(randint(5, 10))
+
+# from cmath import inf
+# print(inf > 10)
+from typing import io
+
+# query = input('> ')
+# with open('text.txt', 'r') as file:
+#     out = list(filter(lambda x: query in x, file))
+# print(out)
+
+
+# from os import name, system
+# print(name)
+
+import contextlib
+import time
+
+@contextlib.contextmanager
+def Timer(user_input):
+    if user_input == 'second':
+        start = time.time()
+        yield
+        end = time.time()
+        print(f'time: {end - start}')
+    elif user_input == 'ns':
+        start = time.time_ns()
+        yield
+        end = time.time_ns()
+        print(f'time_ns: {end - start}')
+
+
+with Timer(input('Enter "second" or "ns": ')):
+    li = []
+    for i in range(1000):
+        for j in range(1000):
+            li.append((i,j))
+    
+
+with Timer(input('Enter "second" or "ns": ')):
+    x = [(i,j) for i in range(1000) for j in range(1000)]
+
+
+

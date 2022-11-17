@@ -1,5 +1,9 @@
 import time
 
+
+
+
+
 def process_timer(func):
     def inner_(arg):
         start = time.time()
@@ -7,6 +11,7 @@ def process_timer(func):
         end = time.time()
         print(f'process time for {arg} items is {end - start}s')
     return inner_
+
 
 @process_timer
 def some(n):
@@ -16,3 +21,4 @@ def some(n):
     return some_list
 
 some(1_000_000)
+

@@ -15,14 +15,14 @@ def count_number(numbers):
         s += str(numbers.count(d))
     try:
         return reduce(lambda x, y: x + y ,filter(lambda x: x > '1', s))
-    except:
+    except TypeError:
         return ''
 
 
 def sort_number(numbers):
     try:
         return reduce(lambda x, y: x + y, sorted(numbers))
-    except:
+    except TypeError:
         return ''
 
 
