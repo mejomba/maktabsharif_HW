@@ -570,32 +570,47 @@ from typing import io
 # from os import name, system
 # print(name)
 
-import contextlib
-import time
+# import contextlib
+# import time
+#
+# @contextlib.contextmanager
+# def Timer(user_input):
+#     if user_input == 'second':
+#         start = time.time()
+#         yield
+#         end = time.time()
+#         print(f'time: {end - start}')
+#     elif user_input == 'ns':
+#         start = time.time_ns()
+#         yield
+#         end = time.time_ns()
+#         print(f'time_ns: {end - start}')
+#
+#
+# with Timer(input('Enter "second" or "ns": ')):
+#     li = []
+#     for i in range(1000):
+#         for j in range(1000):
+#             li.append((i,j))
+#
+#
+# with Timer(input('Enter "second" or "ns": ')):
+#     x = [(i,j) for i in range(1000) for j in range(1000)]
 
-@contextlib.contextmanager
-def Timer(user_input):
-    if user_input == 'second':
-        start = time.time()
-        yield
-        end = time.time()
-        print(f'time: {end - start}')
-    elif user_input == 'ns':
-        start = time.time_ns()
-        yield
-        end = time.time_ns()
-        print(f'time_ns: {end - start}')
+# names = ["John", "Oscar", "Jacob"]
+#
+# file = open("names.txt", "w+")
+# #write down the names into the file
+# for item in names:
+#     file.write(item+'\n')
+# file.close()
+#
+# file= open("names.txt", "r")
+# #output the content of file in console
+# print(file.read())
+#
+# file.close()
 
-
-with Timer(input('Enter "second" or "ns": ')):
-    li = []
-    for i in range(1000):
-        for j in range(1000):
-            li.append((i,j))
-    
-
-with Timer(input('Enter "second" or "ns": ')):
-    x = [(i,j) for i in range(1000) for j in range(1000)]
 
 
 

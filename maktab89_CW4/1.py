@@ -54,8 +54,10 @@ def search_phone_numbers():
 
     file_generator = read_file('phonebooks.txt')
     result = list(filter(lambda x: query in x, file_generator))
-
-    print(f'result for "{query}" is\n', *result)
+    if result:
+        print(f'result for "{query}" is\n', *result)
+    else:
+        print('Not Found')
     input('Enter To Menu... ')
 
 

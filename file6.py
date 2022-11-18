@@ -10,6 +10,7 @@ def process_timer(func):
         func(arg)
         end = time.time()
         print(f'process time for {arg} items is {end - start}s')
+        return 'jafar'
     return inner_
 
 
@@ -20,5 +21,5 @@ def some(n):
         some_list.append(i)
     return some_list
 
-some(1_000_000)
+print(some(1_000_000))
 
