@@ -610,7 +610,31 @@ from typing import io
 # print(file.read())
 #
 # file.close()
+# root = ['jafar', 'mamad', 2, 6,3, 5]
+# root[:] = [root, root, None, None]
+# print(root[0][0])
+# for i in root:
+#     print(i)
 
 
+# import math
+#
+# x = int(input('Please enter a positive number:\n'))
+#
+# try:
+#     print(f'Square Root of {x} is {math.sqrt(x)}')
+# except ValueError as ve:
+#     print(f'You entered {x}, which is not a positive number.')
+#
+#
+
+def range(start, end=None, step=1):
+    while start != end:
+        yield start
+        start += step
 
 
+x = range(0, 5)
+
+for i in range(0, 5):
+    print(i)
