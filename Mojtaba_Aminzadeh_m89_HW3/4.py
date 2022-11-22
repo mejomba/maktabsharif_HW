@@ -1,15 +1,16 @@
 import re
-pattern = re.compile('(^[A-Z]+[A-Za-z]*)\s')
 
-# pattern = r'(^[A-Z]+[A-Za-z]*) '
-def write_to_file(data):
+
+def write_to_file(data_set):
     with open('result.txt', 'a') as file:
-        print(data, file=file)
+        for item in data_set:
+            print(item, file=file)
 
 
 with open('iran.txt', 'r') as input_file:
+    pattern = r'([A-Z]+[a-z]*)[\,\:\-\. \[\{\n]'
     string = input_file.read()
     result = re.findall(pattern, string)
-    print(result)
-    # if 1 == 1:
-    #     write_to_file(result)
+    result = set(result)
+
+    write_to_file(result)

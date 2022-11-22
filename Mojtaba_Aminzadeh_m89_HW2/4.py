@@ -17,13 +17,13 @@ def sort_number(numbers):
     return reduce(lambda x, y: x + y, sorted(numbers))
 
 
-data = ''
+data = '442254545'
 history = None
 while data != history:
     print(data)
     history = data
     data = sort_number(count_number(data) + unique_number(data))
-    sleep(0.5)
+    sleep(0.3)
 # output
 # 442254545
 # 223445

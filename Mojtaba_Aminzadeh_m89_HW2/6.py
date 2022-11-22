@@ -1,6 +1,11 @@
 from string import printable
+from collections import Counter
 
-data = '''www.google.com'''
+
+
+data = '''Www.google.com'''
+
+
 out = {}
 
 for ch in printable:

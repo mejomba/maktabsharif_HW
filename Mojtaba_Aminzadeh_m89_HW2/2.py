@@ -2,8 +2,8 @@ from functools import reduce
 data = [2, 3, 5, 2]
 
 # first way using lambda
-# out = reduce(lambda x, y: x*y, data)
-# print(out)
+out = reduce(lambda x, y: x*y, data)
+print(out)
 
 # second way using normal function
 def mul(a, b):
