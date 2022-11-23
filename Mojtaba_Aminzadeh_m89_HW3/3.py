@@ -18,6 +18,8 @@ def range(start: int, end: int = None, step: int = 1) -> Generator:
         end = start
         start = 0
 
+    if step == 0:
+        raise ValueError(f'step value can not be zero')
     if not isinstance(start, int):
         raise TypeError(f'range expected type "int" but given type {type(start)}')
     elif not isinstance(end, int):
@@ -25,10 +27,16 @@ def range(start: int, end: int = None, step: int = 1) -> Generator:
     elif not isinstance(step, int):
         raise TypeError(f'range "step" expected type "int" but given type {type(step)}')
 
-    while start < end:
-        yield start
-        start += step
+
+    if start < end and step > 0:
+        while start < end:
+            yield start
+            start += step
+    elif start > end and step < 0:
+        while start > end:
+            yield start
+            start += step
 
 
-for i in range(10):
+for i in range(10, 15):
     print(i)

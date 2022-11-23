@@ -893,12 +893,17 @@
 # print(bache.__mro__)
 # # x = bache()
 #
+#
+# class A():
+#     def __init__(self, name):
+#         self.name = name
+#         name = 100
+#
+# a1 = A('jafar')
+#
+# print(a1.name)
+x = range(-10)
+print(x)
+for i in range(-10):
+    print(i)
 
-class A():
-    def __init__(self, name):
-        self.name = name
-        name = 100
-
-a1 = A('jafar')
-
-print(a1.name)

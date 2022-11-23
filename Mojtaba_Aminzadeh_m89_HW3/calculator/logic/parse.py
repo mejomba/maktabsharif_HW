@@ -8,3 +8,4 @@ def parser(user_input):
     assert num1.isdigit() and num2.isdigit(), f'{invalid_number}'
     assert operator in {'+', '-', '*', '/'}, f'{invalid_operator}'
     return num1, operator, num2
+

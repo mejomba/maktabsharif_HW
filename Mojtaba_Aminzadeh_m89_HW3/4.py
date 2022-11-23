@@ -2,7 +2,7 @@ import re
 
 
 def write_to_file(data_set):
-    with open('result.txt', 'a') as file:
+    with open('result.txt', 'w') as file:
         for item in data_set:
             print(item, file=file)
 

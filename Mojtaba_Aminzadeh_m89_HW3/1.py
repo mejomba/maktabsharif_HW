@@ -1,17 +1,21 @@
 import time
 from functools import lru_cache
+import sys, os
 
-def write_file(data, result):
-    with open('cache.txt', 'a+') as file:
+
+def write_file(chach_file, data, result):
+    with open(chach_file, 'a+') as file:
+        kb = 1000
         file.seek(0)
         prev_data = file.read()
-        new_data = str(data) + " " + str(result)
-        if not new_data in prev_data:
-            print(new_data, file=file, flush=True)
+        if not sys.getsizeof(prev_data) / kb > 499:
+            new_data = str(data) + " " + str(result)
+            if not new_data in prev_data:
+                print(new_data, file=file, flush=True)
 
 
-def read_file(name):
-    with open(name, 'r') as file:
+def read_file(cache_file):
+    with open(cache_file, 'r') as file:
         while True:
             data = file.readline()
             if not data:
@@ -20,84 +24,70 @@ def read_file(name):
             yield k, v
 
 
-def cache_dict():
+def cache_dict(cache_file):
     d = {}
-    cache_data = read_file('cache.txt')
+    cache_data = read_file(cache_file)
     for item in cache_data:
         d[int(item[0])] = int(item[1])
     return d
 
 
-# cache_dict = cache_dict()
+def cache(cache_file):
+    def inner_cache(func):
+        result = cache_dict(cache_file)
+
+        def wrapper(data):
+            nonlocal result
+            if not data in result.keys():
+                result[data] = func(data)
+                write_file(cache_file, data, result[data])
+            return result[data]
+
+        return wrapper
+    return inner_cache
 
 
-# def cache(func):
-#     '''calculate new fibo() in not in cache.txt write in file'''
-#     result = None
-#     def wrapper(data):
-#         nonlocal result
-#         if not data in cache_dict.keys():
-#             result = func(data)
-#             write_file(data, result)
-#             return result
-#         else:
-#             return cache_dict[data]
-#     return wrapper
+def timer_process(func_name: str):
+    def inner_timer_process(func):
+        def wraper(data):
+
+            start = time.time()
+            val = func(data)
+            end = time.time()
+            print(f'process time for {func_name} ({data}) : {round(end - start, 6)} s')
+            # print(start, end)
+            # return f'process time for fibo({data}) : {round(end - start, 10)} s'
+            return val
+
+        return wraper
+    return inner_timer_process
 
 
-# def cache(func):
-#     result = {}
-#     def wrapper(data):
-#         nonlocal result
-#         if not data in result:
-#             result[data] = func(data)
-#             # write_file(data, result)
-#             return result[data]
-#         else:
-#             return data
-#     return wrapper
-
-
-def cache(func):
-    result = cache_dict()
-    def wrapper(data):
-        nonlocal result
-        if not data in result.keys():
-            result[data] = func(data)
-            write_file(data, result[data])
-        return result[data]
-    return wrapper
-
-
-def timer_process(func):
-    def wraper(data):
-        start = time.time()
-        out = func(data)
-        end = time.time()
-        print(f'process time for fibo({data}) : {round(end - start, 6)} s')
-        return out
-    return wraper
-
-
-@timer_process
-@cache
+@timer_process('fibo')
+@cache('fibo_cache.txt')
 def fibo(n):
-    if n == 0:
-        return 0
     if n in {1, 2}:
         return 1
     else:
         return fibo(n-1) + fibo(n-2)
 
 
-# @timer_process
-# # @cache
-# def factorial(n):
-#    if n == 1:
-#        return n
-#    else:
-#        return n * factorial(n-1)
+@timer_process('factorial')
+@cache('factorial_cache.txt')
+def factorial(n):
+   if n == 1:
+       return n
+   else:
+       return n * factorial(n-1)
 
 
-x = fibo(155)
-print(x)
+fibonacci = fibo(100)
+fact = factorial(5)
+
+print('fibonacci: ', fibonacci)
+print('fact: ', fact)
+
+# fibo 200 without "fibo_cache.txt" = 0.028
+# fibo 200 wit "fibo_cache.txt" = 0.000002
+# fibo 400 wit fibo(200) cache = 0.013
+# 0.002
