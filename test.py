@@ -902,8 +902,8 @@
 # a1 = A('jafar')
 #
 # print(a1.name)
-x = range(-10)
-print(x)
-for i in range(-10):
-    print(i)
+# x = range(-10)
+# print(x)
+# for i in range(-10):
+#     print(i)
 

@@ -4,3 +4,6 @@ dfgdfgdfgfd = Invalid Format Exception
 1 + fgfdgfd = Invalid Number Exception
 5 / 0 = float division by zero
 exit = close program by user
+5 * 2 = 10
+بیسبیس = Invalid Format Exception
+dfd + 55 = Invalid Number Exception
