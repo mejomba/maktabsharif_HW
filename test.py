@@ -905,5 +905,44 @@
 # x = range(-10)
 # print(x)
 # for i in range(-10):
-#     print(i)
+#
+
+
+# import random
+#
+# for i in range(7):
+#     print(random.choice(['عاشقانه', 'اکشن', 'ترسناک' ]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
