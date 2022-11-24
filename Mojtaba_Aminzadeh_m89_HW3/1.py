@@ -34,8 +34,8 @@ def cache_dict(cache_file):
 
 def cache(cache_file):
     def inner_cache(func):
-        result = cache_dict(cache_file)
 
+        result = cache_dict(cache_file)
         def wrapper(data):
             nonlocal result
             if not data in result.keys():
@@ -56,7 +56,7 @@ def timer_process(func_name: str):
             end = time.time()
             print(f'process time for {func_name} ({data}) : {round(end - start, 6)} s')
             # print(start, end)
-            # return f'process time for fibo({data}) : {round(end - start, 10)} s'
+            # return f'process time for {func_name} ({data}) : {round(end - start, 10)} s'
             return val
 
         return wraper
