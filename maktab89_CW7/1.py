@@ -54,7 +54,7 @@ class University():
                 'teacher': f'{klas.teacher.name} {klas.teacher.famili}',
                 'students': klas.student_list
             }
-            print(f'{klas.name} id:{klas.kid}')
+            print(f'{klas.name} id: {klas.kid}')
             shelve_file.close()
         else:
             print(f'klas {klas.name} currently exist.')
@@ -148,36 +148,36 @@ if __name__ == '__main__':
 
 
     """ Drive Code for make object and write to file"""
-    print("""\nremember id for "get_item_by_id(id)" method\n""")
-    print('=== register teacher ===')
-    u.register_teacher(teacher1)
-    u.register_teacher(teacher2)
+    # print("""\nremember id for "get_item_by_id(id)" method\n""")
+    # print('=== register teacher ===')
+    # u.register_teacher(teacher1)
+    # u.register_teacher(teacher2)
 
-    print('\n=== register klas ===')
-    u.register_class(k1)
-    u.register_class(k2)
+    # print('\n=== register klas ===')
+    # u.register_class(k1)
+    # u.register_class(k2)
 
-    print('\n=== register student ===')
-    u.register_student(student1)
-    u.register_student(student2)
-    u.register_student(student3)
-    u.register_student(student4)
-    u.register_student(student5)
+    # print('\n=== register student ===')
+    # u.register_student(student1)
+    # u.register_student(student2)
+    # u.register_student(student3)
+    # u.register_student(student4)
+    # u.register_student(student5)
 
 
 
     """ test functionality """
-    print("========== teachers by id ==========")
-    u.get_teacher_by_id(9492)
+    print("\n========== teachers by id ==========")
+    u.get_teacher_by_id(6872)
     u.get_teacher_by_id(1234)
 
     print("\n========== klas by id ==========")
-    u.get_klas_by_id(6151)
+    u.get_klas_by_id(2851)
     u.get_klas_by_id(1234)
 
     print("\n========== student by id ==========")
-    u.get_student_by_id(6361)
-    u.get_student_by_id(7846)
+    u.get_student_by_id(9837)
+    u.get_student_by_id(1506)
     u.get_student_by_id(1234)
 
     print("\n========== all klas list ==========")
