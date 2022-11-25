@@ -893,11 +893,13 @@
 # print(bache.__mro__)
 # # x = bache()
 #
-#
+
 # class A():
 #     def __init__(self, name):
 #         self.name = name
 #         name = 100
+
+
 #
 # a1 = A('jafar')
 #
@@ -913,36 +915,19 @@
 # for i in range(7):
 #     print(random.choice(['عاشقانه', 'اکشن', 'ترسناک' ]))
 
+class A:
+ pass
 
+class B(A):
+ pass
 
+class C(A):
+ pass
 
+class D(A,B):
+ pass
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+d = D()
 
 
 
