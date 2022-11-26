@@ -81,11 +81,11 @@ def factorial(n):
        return n * factorial(n-1)
 
 
-fibonacci = fibo(100)
-fact = factorial(5)
+fibonacci = fibo(20)
+# fact = factorial(5)
 
 print('fibonacci: ', fibonacci)
-print('fact: ', fact)
+# print('fact: ', fact)
 
 # fibo 200 without "fibo_cache.txt" = 0.028
 # fibo 200 wit "fibo_cache.txt" = 0.000002
