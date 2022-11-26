@@ -45,8 +45,8 @@ class University():
         self.web = web
         self.id = id
 
-
-    def register_class(self, klas):
+    @staticmethod
+    def register_class(klas):
         shelve_file = shelve.open('class_database')
         if not shelve_file.get(str(klas.kid)):
             shelve_file[str(klas.kid)] = {
@@ -59,7 +59,8 @@ class University():
         else:
             print(f'klas {klas.name} currently exist.')
 
-    def register_teacher(self, teacher):
+    @staticmethod
+    def register_teacher(teacher):
         shelve_file = shelve.open('teacher_database')
         if not shelve_file.get(f'{teacher.tid}'):
             shelve_file[f'{teacher.tid}'] = teacher
@@ -68,7 +69,8 @@ class University():
         else:
             print(f'teacher {teacher.name} {teacher.famili} currently exist')
 
-    def register_student(self, student):
+    @staticmethod
+    def register_student(student):
         shelve_file = shelve.open('student_database')
         if not shelve_file.get(f'{student.sid}'):
             shelve_file[f'{student.sid}'] = student
@@ -77,7 +79,8 @@ class University():
         else:
             print(f'student {student.name} currently exist')
 
-    def get_teacher_by_id(self, id):
+    @staticmethod
+    def get_teacher_by_id(id):
         shelve_file = shelve.open('teacher_database')
         data = shelve_file.get(str(id))
         shelve_file.close()
@@ -87,7 +90,8 @@ class University():
             print(data)
             return data
 
-    def get_klas_by_id(self, id):
+    @staticmethod
+    def get_klas_by_id(id):
         shelve_file = shelve.open('class_database')
         data = shelve_file.get(str(id))
         shelve_file.close()
@@ -97,7 +101,8 @@ class University():
             print(data)
             return data
 
-    def get_student_by_id(self, id):
+    @staticmethod
+    def get_student_by_id(id):
         shelve_file = shelve.open('student_database')
         data = shelve_file.get(str(id))
         shelve_file.close()
@@ -107,20 +112,22 @@ class University():
             print(data)
             return data
 
-    def get_student_list(self):
+    @staticmethod
+    def get_student_list():
         shelve_file = shelve.open('student_database')
         for item in shelve_file:
             print(shelve_file[item])
         shelve_file.close()
 
-    def get_teacher_list(self):
+    @staticmethod
+    def get_teacher_list():
         shelve_file = shelve.open('teacher_database')
         for item in shelve_file:
             print(shelve_file[item])
         shelve_file.close()
 
-
-    def get_klas_list(self):
+    @staticmethod
+    def get_klas_list():
         shelve_file = shelve.open('class_database')
         for item in shelve_file:
             print(shelve_file[item])
@@ -152,11 +159,11 @@ if __name__ == '__main__':
     # print('=== register teacher ===')
     # u.register_teacher(teacher1)
     # u.register_teacher(teacher2)
-
+    #
     # print('\n=== register klas ===')
     # u.register_class(k1)
     # u.register_class(k2)
-
+    #
     # print('\n=== register student ===')
     # u.register_student(student1)
     # u.register_student(student2)
@@ -168,7 +175,7 @@ if __name__ == '__main__':
 
     """ test functionality """
     print("\n========== teachers by id ==========")
-    u.get_teacher_by_id(6872)
+    u.get_teacher_by_id(5074)
     u.get_teacher_by_id(1234)
 
     print("\n========== klas by id ==========")
