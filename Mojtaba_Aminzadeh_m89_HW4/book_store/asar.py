@@ -13,6 +13,7 @@ class Book(Asar):
         assert isinstance(authors, list), 'book authors must be [writer, writer, ...]'
         for author in authors:
             assert isinstance(author, Writer), 'book authors must be [writer, writer, ...]'
+            self.authors = authors
         self.isbn = isbn
         self.publisher = publisher
         super().__init__(title, authors)

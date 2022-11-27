@@ -25,8 +25,7 @@ yellow = color.yellow
 
 class User:
     id = 1
-    user_registered = {
-    }
+    user_registered = {}
 
     def __init__(self, username: str, password: str, phone_number: str = None):
         self.username = username
@@ -192,6 +191,7 @@ while True:
     print(blue('========== main menu ==========\n'))
     for item in menu:
         print(f'{item}: {menu[item]}')
+
     user_input = input('\n> ')
     if user_input == '0':
         break

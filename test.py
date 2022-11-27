@@ -916,6 +916,80 @@
 #     print(random.choice(['عاشقانه', 'اکشن', 'ترسناک' ]))
 
 
-x = ""
-print()
+# import time
+# current_time = time.time()
+# day_name, month_name, day_of_month, clock, year = time.ctime(current_time).split(' ')
+# hour, min_, second = clock.split(':')
+# # ['Sun', 'Nov', '27', '10:37:15', '2022']
+# months = {
+#     'Jan': 1,
+#     'Feb': 2,
+#     'Mar': 3,
+#     'Apr': 4,
+#     'May': 5,
+#     'Jun': 6,
+#     'Jul': 7,
+#     'Aug': 8,
+#     'Sep': 9,
+#     'Oct': 10,
+#     'Nov': 11,
+#     'Dec': 12,
+# }
+#
+# days = {
+#     'Mon': 1,
+#     'Tue': 2,
+#     'Wed': 3,
+#     'Thu': 4,
+#     'Fri': 5,
+#     'Sat': 6,
+#     'Sun': 7,
+# }
+#
+# print(date.split(' '))
+# day = 3600
+# month = 30 * day
+# year = 12 * month
+# print(current_time/day)
+from typing import Optional, Union
+class Computer:
+    def __init__(self, cpu: str, ram, hdd: Union[str, int, float], gpu: Optional[str]):
+        self.cpu = cpu
+        self.ram = ram
+        self.hdd = hdd
+        self.gpu = gpu
+        self.on = False
 
+    @staticmethod
+    def restart():
+        return True
+
+    def power(self):
+        self.on = not self.on
+        return f"roshan"
+
+    @classmethod
+    def create_new(cls, cpu, ram, hdd, gpu):
+        if cpu > 8 and ram > 18 and hdd > 1000 and gpu > 4:
+            return cls('amd', 32, 128, '2G')
+        else:
+            raise ValueError
+
+
+gaming = Computer.create_new(10, 24, 2000, 8)
+print(gaming.gpu)
+class Pc(Computer):
+    def __init__(self, cpu, ram, hdd, gpu, monitor, keyboard, mouse):
+        self.monitor = monitor
+        self.keyboard = keyboard
+        self.mouse = mouse
+        super().__init__(cpu=cpu, ram=ram, hdd=hdd, gpu=gpu)
+
+
+pc = Pc('intel', 16, 1000, 'gtx 3080', 48, 'microsoft', 'apple')
+pc2 = Pc('intel', 16, 1000, 'gtx 3080', 48, 'microsoft', 'apple')
+print(pc.power())
+print(pc.power())
+print(pc.power())
+print(pc2.on)
+print(pc2.power())
