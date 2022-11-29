@@ -27,7 +27,6 @@ def range(start: int, end: int = None, step: int = 1) -> Generator:
     elif not isinstance(step, int):
         raise TypeError(f'range "step" expected type "int" but given type {type(step)}')
 
-
     if start < end and step > 0:
         while start < end:
             yield start
@@ -38,5 +37,5 @@ def range(start: int, end: int = None, step: int = 1) -> Generator:
             start += step
 
 
-for i in range(10, 15):
+for i in range(5, 10):
     print(i)

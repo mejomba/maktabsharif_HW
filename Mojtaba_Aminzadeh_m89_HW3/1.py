@@ -1,6 +1,6 @@
 import time
 from functools import lru_cache
-import sys, os
+import sys
 
 
 def write_file(chach_file, data, result):
@@ -10,7 +10,7 @@ def write_file(chach_file, data, result):
         prev_data = file.read()
         if not sys.getsizeof(prev_data) / kb > 499:
             new_data = str(data) + " " + str(result)
-            if not new_data in prev_data:
+            if new_data not in prev_data:
                 print(new_data, file=file, flush=True)
 
 

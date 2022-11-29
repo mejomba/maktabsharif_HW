@@ -28,7 +28,7 @@ class BankAccount:
     def transaction(self, other: 'BankAccount', value: int):
         try:
             assert isinstance(other, BankAccount), "invalid account"
-            assert  isinstance(value, int), "invalid transaction value"
+            assert isinstance(value, int), "invalid transaction value"
             assert value > 0, f"transaction value can't be {value}"
             self.amount -= value
             other.amount += value
@@ -45,4 +45,3 @@ print(mojtaba_acc.amount)
 mojtaba_acc.transaction(mamad_acc, 1200)
 print(mojtaba_acc.amount)
 print(mamad_acc.amount)
-

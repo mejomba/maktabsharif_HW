@@ -13,9 +13,8 @@ class Writer(Person):
 
 
 class Poet(Person):
-    def __init__(self, email, style) -> None:
+    def __init__(self, name, email, gender, style) -> None:
         self.style = style
-        self.email = email
         super().__init__(name, email, gender)
 
 

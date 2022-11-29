@@ -7,3 +7,5 @@ exit = close program by user
 5 * 2 = 10
 بیسبیس = Invalid Format Exception
 dfd + 55 = Invalid Number Exception
+2 + 5 = 7
+fdgdfg = Invalid Format Exception
