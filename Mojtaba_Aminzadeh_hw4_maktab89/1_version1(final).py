@@ -1,7 +1,7 @@
 from hashlib import sha256
 import os
-import sys
 import time
+from typing import Optional
 
 
 try:
@@ -27,8 +27,17 @@ yellow = color.yellow
 class User:
     id = 0
     user_registered = {}
+    """User class for generate user and register in database
+    :param id: like database primary key
+    :param user_registered: a dictionary use as database
+    """
 
-    def __init__(self, username: str, password: str, phone_number: str = None):
+    def __init__(self, username: str, password: str, phone_number: Optional[str] = None):
+        """
+        :param username:str, required, non duplicate
+        :param password:str, minimum length 4 character
+        :param phone_number: str, optional
+        """
         self.username = username
         self.__password = password
         if not phone_number:
@@ -41,7 +50,13 @@ class User:
         print(f'{self.username} {green("registered")}\n')
 
     @staticmethod
-    def __valid_pass(name_var, password):
+    def __valid_pass(name_var: str, password: str) -> str:
+        """
+        check password validation and return sha256(password)
+        :param name_var: variable name show in message
+        :param password: user input password
+        :return: str
+        """
         try:
             assert len(str(password)) >= 4, f"{name_var} length should be longer than 3"
             return sha256(str(password).encode('utf-8')).hexdigest()
@@ -49,7 +64,12 @@ class User:
             print(f'{yellow("Hint:")} {e}')
 
     @staticmethod
-    def __valid_username(username):
+    def __valid_username(username: str) -> str:
+        """
+        check for non duplicated username
+        :param username: str from user input
+        :return: str
+        """
         try:
             for _user in User.user_registered.values():
                 assert username != _user.username, f'{username} already taken'
@@ -59,7 +79,14 @@ class User:
             print(f'{yellow("Hint:")} {e}')
 
     @classmethod
-    def register_new_user(cls, username, password, phone):
+    def register_new_user(cls, username: str, password: str, phone: str) -> None:
+        """
+        if username and password is valid call User class for initiate new User instance
+        :param username: str form user input
+        :param password: str from user input
+        :param phone: str optional from user input
+        :return: None
+        """
         print(blue('========== register new user ==========\n'))
         if not username:
             print(yellow("hint: ") + "username can't be empty")
@@ -75,7 +102,13 @@ class User:
         cls(user, passwd, phone)
 
     @staticmethod
-    def login(_username, _password):
+    def login(_username: str, _password: str) -> None:
+        """
+        if _username and _password in database user authenticated
+        :param _username: str from user input
+        :param _password: str from user input
+        :return: user
+        """
         print(blue('========== login ==========\n'))
         for _user in User.user_registered.values():
             if _username == _user.username and User.__valid_pass("password", _password) == _user.__password:
@@ -85,7 +118,15 @@ class User:
             print(red('username or password incorrect.'))
 
     @staticmethod
-    def change_password(_user, _old_password, _new_password1=None, _new_password2=None):
+    def change_password(_user: 'User', _old_password: str, _new_password1=None, _new_password2=None) -> None:
+        """
+        change password if user old password and new password1 and 2 is valid
+        :param _user: user object who want to change password
+        :param _old_password: str from user input
+        :param _new_password1: str from user input
+        :param _new_password2: str from user input
+        :return: None
+        """
         print(blue('========== change_password ==========\n'))
 
         # check if password is valid, return sha256(password)
@@ -120,6 +161,12 @@ class User:
         print(self)
 
     def edit_username_and_phone(self, _username, _phone_number):
+        """
+        this method edit username and phone number
+        :param _username: str from user input
+        :param _phone_number: str from user input
+        :return: None
+        """
         print(blue('========== edit username and phone ==========\n'))
         # get new username and phone number
         try:
@@ -199,16 +246,12 @@ if __name__ == "__main__":
                     print(blue('========== user authenticated menu ==========\n'))
                     print_menu(_authenticated_menu)
 
-                    # ==================== get input for authenticated user operation ====================
+                    # ==================== handle input authenticated user operation ====================
                     _user_input = input('\n> ')
                     _op = _authenticated_menu.get(_user_input)
-
-                    # ================= if valid operation make this name like python function name =================
                     if _op:
                         _op = _op.replace(' ', '_')
 
-                    # ==================== handle input authenticated user operation ====================
-                    # ==================== logout operation ====================
                     if _op == 'logout':
                         print('good by')
                         break

@@ -10,10 +10,12 @@ class Asar:
 
 class Book(Asar):
     def __init__(self, title: str, authors: List[Writer], isbn: int, publisher: str) -> None:
-        assert isinstance(authors, list), 'book authors must be [writer, writer, ...]'
+        if not isinstance(authors, list):
+            raise TypeError('book authors must be [writer, writer, ...]')
         for author in authors:
-            assert isinstance(author, Writer), 'book authors must be [writer, writer, ...]'
-            self.authors = authors
+            if not isinstance(author, Writer):
+                raise TypeError('book authors must be [writer, writer, ...]')
+        self.authors = authors
         self.isbn = isbn
         self.publisher = publisher
         super().__init__(title, authors)
@@ -27,19 +29,19 @@ class Book(Asar):
 
 class Poetry(Asar):
     def __init__(self, title, authors: Poet, literary_format):
-        try:
-            assert isinstance(authors, Poet), 'Error: the poetry can only have one author of type Poet'
-        except AssertionError as e:
-            print(e)
+        if not isinstance(authors, Poet):
+            raise TypeError('Error: the poetry can only have one author of type Poet')
         self.literary_format = literary_format
         super().__init__(title, authors)
 
 
 class Paper(Asar):
     def __init__(self, title, authors: List[Researcher], journal_name, publish_date):
-        assert isinstance(authors, list), 'paper authors must be [Researcher, Researcher, ...]'
+        if not isinstance(authors, list):
+            raise TypeError('Error: paper authors must be [Researcher, Researcher, ...]')
         for author in authors:
-            assert isinstance(author, Researcher), 'paper authors must be [Researcher, Researcher, ...]'
+            if not isinstance(author, Researcher):
+                raise TypeError('Error: paper authors must be [Researcher, Researcher, ...]')
         self.journal_name = journal_name
         self.publish_date = publish_date
         super().__init__(title, authors)
