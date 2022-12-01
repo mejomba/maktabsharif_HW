@@ -1,4 +1,4 @@
-class Book:
+class Mahsol:
     def __init__(self, title, price, count):
         if count <= 0:
             raise ValueError("count of book must be positive")
