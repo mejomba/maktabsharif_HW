@@ -1,20 +1,23 @@
-def name():
-    return 'mojtaab'
+class Base:
+    variable = []
+
+    def some_method(self):
+        self.__class__.variable.append(self)
+        # print(self.__class__.variable)
+        # Base.variable.append(self)
+        # Child.variable.append(self)
+        print('base', Base.variable)
+        print('child', Child.variable)
 
 
-def arange(n):
-    while n > 0:
-        yield n
-        n -= 1
+class Child(Base):
+    # variable = []
+    pass
 
-# for i in arange(3):
-#     print(i)
 
-# even = [x for x in range(10) if x % 2 == 0]
-even = (x for x in range(10) if x % 2 == 0)
-print(even)
-for i in even:
-    print(i)
-print()
-for j in even:
-    print(j)
+base = Base()
+child = Child()
+
+base.some_method()
+child.some_method()
+
