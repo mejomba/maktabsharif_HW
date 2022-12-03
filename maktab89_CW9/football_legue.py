@@ -1,5 +1,26 @@
 from typing import List
 import random
+from string import ascii_lowercase
+
+
+def random_name():
+    return ''.join(random.sample(ascii_lowercase, k=random.randint(3, 7)))
+
+
+def random_age(a, b):
+    return random.randint(a, b)
+
+
+def random_salary():
+    return random.randint(1000, 10000)
+
+
+def random_position():
+    return 'position ' + ''.join(random.sample(ascii_lowercase, k=2))
+
+
+def random_rate():
+    return random.randint(4, 10)
 
 
 class Human:
@@ -13,16 +34,6 @@ class Human:
             raise ValueError('age cant be negative')
         else:
             return n
-
-    # @property
-    # def age(self):
-    #     return self.__age
-    #
-    # @age.setter
-    # def age(self, value):
-    #     if int(value) < 0:
-    #         raise ValueError('age cant be negative')
-    #     self.__age = value
 
 
 class Footbalist(Human):
@@ -54,7 +65,7 @@ class Footbalist(Human):
             raise ValueError('rate bettwen 1 to 100')
 
     def __repr__(self):
-        return f'{self.name}: {self.position}'
+        return f'{self.name}'
 
 
 class Couch(Human):
@@ -91,7 +102,7 @@ class Team:
         self.players = players
         self.couch = couch
         self.point = 0
-        self.balance = balance
+        self.balance = int(balance)
         self.__class__.all_teams.append(self)
 
     @property
@@ -102,7 +113,7 @@ class Team:
     def players(self, value):
         if not isinstance(value, list):
             raise TypeError('player must be list of Footbalist')
-        if len(value) != 2:
+        if len(value) != 5:
             raise ValueError('length of players 11')
         for player in value:
             if not isinstance(player, Footbalist):
@@ -138,16 +149,39 @@ class Team:
     @classmethod
     def create_team(cls):
         players_list = []
-        name = input('> name: ')
-        for _ in range(2):
-            data = input('> player: name, age, salary, position, rate').split(' ')
-            footbalist = Footbalist(data[0], data[1], data[2], data[3], data[4])
-            # footbalist = Footbalist('jafar', 22, 2121, 'fw', 8)
+        team_name = input('> Team name: ')
+        for _ in range(5):
+            footbalist = Footbalist(
+                                    random_name(), random_age(15, 30),
+                                    random_salary(), random_position(),
+                                    random_rate()
+                                    )
             players_list.append(footbalist)
-        couch = input('> Couch: name, age, salary, start_date, end_data').split(' ')
-        couch = Couch(name=couch[0], age=couch[1], salary=couch[2], start_date=couch[3], end_date=couch[4])
-        balance = input('> team balance: ')
-        return cls(name=name, players=players_list, couch=couch, balance=balance)
+        print(f'team {team_name} players: {players_list}')
+        couch = Couch(name=random_name(), age=random_age(35, 60), salary=random_salary(), start_date=2020, end_date=2023)
+        balance = input(f'> team {team_name} balance: ')
+        return cls(name=team_name, players=players_list, couch=couch, balance=balance)
+
+    def transfer(self, other, player1_number, player2_number):
+        if not isinstance(other, Team):
+            raise TypeError('transfer only between two team object')
+
+        team1_player = self.players.pop(int(player1_number))
+        team2_player = other.players.pop(int(player2_number))
+
+        self.balance -= team2_player.salary
+        self.balance += team1_player.salary
+
+        other.balance -= team1_player.salary
+        other.balance += team2_player.salary
+
+        self.players.append(team2_player)
+        other.players.append(team1_player)
+
+        print(f'{self.name}: {self.players}')
+        print(f'{other.name}: {other.players}')
+        print(f'{self.name}: {self.balance}')
+        print(f'{other.name}: {other.balance}')
 
     def __lt__(self, other):
         return self.point < other.point
@@ -175,7 +209,7 @@ class League:
 
     @teams.setter
     def teams(self, value):
-        if len(value) != 3:
+        if len(value) != 2:
             raise ValueError('teams must be 5')
         if not isinstance(value, list):
             raise ValueError("teams must be list of teams")
@@ -204,11 +238,14 @@ class League:
             print(team)
 
 
+
 team1 = Team.create_team()
 team2 = Team.create_team()
-team3 = Team.create_team()
+# team3 = Team.create_team()
 
-league1 = League([team1, team2, team3])
+team1.transfer(team2, player1_number=2, player2_number=4)
+
+league1 = League([team1, team2])
 
 for i in range(20):
     league1.match()
