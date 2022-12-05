@@ -1,6 +1,6 @@
 import time
 
-# time.ctime(sec).split(" ") -> ['Sun', 'Nov', '27', '10:37:15', '2022']
+# time.ctime(sec).split("") -> ['Sun', 'Nov', '27', '10:37:15', '2022']
 months = {
     'Jan': 1,
     'Feb': 2,
@@ -53,17 +53,13 @@ class BirthDay:
         if not 0 <= hour <= 23:
             raise HourException
 
-        # assert year > 0, 'year must be positive'
-        # assert 1 <= month <= 12, 'month must be 1 to 12'
-        # assert 1 <= day <= 31, 'day must be 1 to 31'
-        # assert 0 <= hour <= 23, 'hour must be 0 to 23'
         self.year = year
         self.month = month
         self.day = day
         self.hour = hour
 
     def get_age(self):
-        _, now_month_name, now_day_of_month, now_clock, now_year = time.ctime(time.time()).split(' ')
+        _, now_month_name, now_day_of_month, now_clock, now_year = time.ctime(time.time()).split()
         now_hour, _, _ = now_clock.split(':')
         now_month = months[now_month_name]
 
@@ -108,4 +104,3 @@ print('=' * 20)
 time_to_birthday = mojtaba.time_to_happy_birth_day()
 for item in time_to_birthday:
     print(*item)
-

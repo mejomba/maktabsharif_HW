@@ -14,23 +14,10 @@ class A(Singleton):
         self.age = age
 
 
-class B(Singleton):
-    def __init__(self, name, age=None):
-        self.name = name
-        self.age = age
-
-
 a1 = A('mamad')
-a2 = A('akbar', 20)
+a2 = A('akbar', 30)
 
 print(a1)
 print(a2)
 print(a1 is a2)
-
-b1 = B('jafar')
-b2 = B('ahmad', 15)
-
-print(b1)
-print(b2)
-print(b1 is b2)
-
+print(id(a1) == id(a2))

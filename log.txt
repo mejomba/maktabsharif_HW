@@ -1,1 +1,0 @@
-<__main__.Adam object at 0x7f39928f63a0> add
