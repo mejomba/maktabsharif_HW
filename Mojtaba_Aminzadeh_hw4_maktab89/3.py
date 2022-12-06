@@ -37,11 +37,11 @@ class BankAccount:
 
 
 mojtaba_acc = BankAccount('mojtaba', 4500)
-mamad_acc = BankAccount('mamad', 8000)
+mohamad_acc = BankAccount('mohamad', 8000)
 
 
 mojtaba_acc.deposit(1000)
-print(mojtaba_acc.amount)
-mojtaba_acc.transaction(mamad_acc, 1200)
-print(mojtaba_acc.amount)
-print(mamad_acc.amount)
+print('mojtaba amount:', mojtaba_acc.amount)
+mojtaba_acc.transaction(mohamad_acc, 1200)
+print('mojtaba amount:', mojtaba_acc.amount)
+print('mohamad amount:', mohamad_acc.amount)
