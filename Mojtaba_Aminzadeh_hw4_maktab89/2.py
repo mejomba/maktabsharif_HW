@@ -58,7 +58,7 @@ class BirthDay:
         self.day = day
         self.hour = hour
 
-    def get_age(self):
+    def get_age(self) -> list:
         _, now_month_name, now_day_of_month, now_clock, now_year = time.ctime(time.time()).split()
         now_hour, _, _ = now_clock.split(':')
         now_month = months[now_month_name]
@@ -85,14 +85,34 @@ class BirthDay:
         hint = ['year', 'month', 'day', 'hour']
 
         result = []
-        for h, current, user_birth in zip(hint, now, user_birth_day):
-            result.append((h, current - user_birth))
+        for h, current_time, user_birth in zip(hint, now, user_birth_day):
+            result.append((h, current_time - user_birth))
+
+        year_in_hour = result[0][1] * 8760  # one year in hour  = 8760 (base on 365 day)
+        month_in_hour = result[1][1] * 720  # one month in hour = 720 (base on 30 day)
+        day_in_hour = result[2][1] * 24     # one day in hour   = 24 (base on 1 day)
+        hour_in_hour = result[3][1]         # one hour in hour
+        age_in_hour = ('age in hour:', year_in_hour + month_in_hour + day_in_hour + hour_in_hour)
+        result.append(age_in_hour)
 
         return result
 
-    def time_to_happy_birth_day(self):
-        month, day, hour = self.get_age()[1:]
-        return [(month[0], 11 - month[1]), (day[0], 30 - day[1]), (hour[0], 24 - hour[1])]
+    def time_to_happy_birth_day(self) -> list:
+        result = []
+        month, day, hour = self.get_age()[1:-1]  # get => month, day, hour with "hint"
+
+        month_to_birth_day, day_to_birth_day, hour_to_birth_day = [(month[0], 11 - month[1]), (day[0], 30 - day[1]), (hour[0], 24 - hour[1])]
+        month_hour = month_to_birth_day[1] * 720  # one month in hour = 720 (base on 30 day)
+        day_hour = day_to_birth_day[1] * 24       # one day in hour   = 24 (base on 1 day)
+        hour_hour = hour_to_birth_day[1]          # one hour in hour
+        to_birth_day_in_hour = ('time_to_birth_day in hour:', month_hour + day_hour + hour_hour)
+
+        result.append(month_to_birth_day)
+        result.append(day_to_birth_day)
+        result.append(hour_to_birth_day)
+        result.append(to_birth_day_in_hour)
+
+        return result
 
 
 mojtaba = BirthDay(year=1993, month=4, day=7, hour=7)
@@ -100,7 +120,8 @@ mojtaba = BirthDay(year=1993, month=4, day=7, hour=7)
 age = mojtaba.get_age()
 for item in age:
     print(*item)
-print('=' * 20)
+
+print('=' * 25, 'time to birth day')
 time_to_birthday = mojtaba.time_to_happy_birth_day()
 for item in time_to_birthday:
     print(*item)

@@ -16,7 +16,9 @@ class Add(Base):
         return self
 
     def __repr__(self):
-        return str(self.sum_)
+        result = self.sum_
+        self.sum_ = 0
+        return str(result)
 
 
 print(Add(50))  # --> 50
@@ -24,3 +26,5 @@ print(Add(50)(20))  # --> 70
 
 x = Add()
 print(x(10)(20)(-30))  # --> 0
+print(x(10)(20)(30))  # --> 60
+print(x(10)(20)(30))  # --> 60
