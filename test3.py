@@ -11,10 +11,10 @@ class Add:
         return str(self.number)
 
 
-x = Add()
-print(x(10)(20)(10)(5)(-2))
-
-print(Add(10)(20)(5)(3))
+# x = Add()
+# print(x(10)(20)(10)(5)(-2))
+#
+# print(Add(10)(20)(5)(3))
 
 #
 # class Add:
@@ -35,11 +35,15 @@ print(Add(10)(20)(5)(3))
 #
 # print(Add(10)(20)(5)(3))
 
-RED = "\033[0;31m"
-GREEN = "\033[0;32m"
-BLUE = "\033[0;34m"
-YELLOW = "\033[1;33m"
-END = "\033[0m"
+class add(int):
+    def __call__(self, value):
+        return add(self + value)
 
-print(f'{RED}salam')
-print(f'{END}salam')
+
+print(add(5)(10)(20)(4))
+
+from test import *
+import test
+from test import _a
+print(_a
+)

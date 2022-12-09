@@ -113,3 +113,7 @@ Add = A()
 Add2 = A()
 print(Add(2)(10)(10)(16)(18))
 print(Add2(2)(10)(10)(16)(18))
+
+def __a():
+    print('salam')
+_a = 500

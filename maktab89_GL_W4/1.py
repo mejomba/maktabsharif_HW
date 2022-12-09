@@ -42,10 +42,6 @@ class Account:
         if digits_flag and letters_flag and punctuation_flag:
             return value
 
-        # if any([True for i in value if i in digits]) and \
-        #    any([True for i in value if i in ascii_letters]) and \
-        #    any([True for i in value if i in punctuation]):
-        #     return value
         raise Exception('password must contain digits, letters, punctuation')
 
     def change_password(self, old_password, new_password1, new_password2):
@@ -56,8 +52,6 @@ class Account:
         if not new_password1 == new_password2:
             raise Exception("new password doesn't match.")
         self.__password = new_password1
-
-
 
 
 mojtaba = Account('mojtaba', '12345678h/')
