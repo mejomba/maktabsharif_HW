@@ -62,7 +62,6 @@ class Store:
         while copy_product:
             item = copy_product.popitem()
             name, price = item[0].name, item[0].price
-            print(name, price)
             for p_name, p_price in product_name_and_price:
                 if name == p_name and price != p_price:
                     inflation_list.append(name)
