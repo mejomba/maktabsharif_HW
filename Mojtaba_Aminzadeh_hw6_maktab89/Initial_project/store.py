@@ -1,28 +1,27 @@
-from models import Product, User
-from functools import reduce
-import itertools
+from models import Product, User, Comment
 
 
 class Store:
     def __init__(self):
         self.products = dict()
         self.users = list()
-        # print(self.products)
-        # print(self.users)
 
     def add_product(self, product, amount=1):
         self.products[product] = self.products.get(product, 0) + amount
 
     def remove_product(self, product, amount=1):
         number_of_product = self.products.get(product)
-        if not number_of_product:
+        if number_of_product < amount:
             raise Exception('Not Enough Products')
+
         elif number_of_product == 0:
             self.products.pop(product)
-        elif 0 < number_of_product < amount:
+        elif 0 < number_of_product >= amount:
             self.products[product] = number_of_product - amount
-        # else:
-        #     raise Exception('Not Enough Products')
+
+        number_of_product = self.products.get(product)
+        if number_of_product == 0:
+            self.products.pop(product)
 
     def add_user(self, username):
         for user in self.users:
@@ -33,11 +32,10 @@ class Store:
         return user.username
 
     def get_total_asset(self):
-
-        # return reduce(lambda x, y: x + y, map(lambda x: x.price, self.products))
         sum_of_price = 0
         for product in self.products:
-            sum_of_price += product.price
+            mac = product.price * self.products.get(product)
+            sum_of_price += mac
         return sum_of_price
 
     def get_total_profit(self):
@@ -52,34 +50,24 @@ class Store:
         for product in self.products:
             for comment in product.comments:
                 if comment.user.username == user.username:
-                    user_comment.append(comment)
+                    user_comment.append(comment.text)
         return user_comment
 
     def get_inflation_affected_product_names(self):
         inflation_list = list()
-        product_list = list(self.products)
-        product_name_and_price = []
-        print(product_list)
         copy_product = self.products.copy()
 
-        for p in product_list:
-            product_name_and_price.append((p.name, p.price))
-        out = itertools.compress(product_name_and_price, filter(lambda x, y: x[0] == y[0] and x[1] != y[1], product_name_and_price))
-        print(list(out))
-        # out = filter(lambda x: x[0] == y[0] and x[1] != y[1], product_name_and_price)
-        # for item in out:
-        #     print(item)
-        # return list(map(lambda x, : (x[0], x[1]), product_name_and_price))
-        # return product_name_and_price
+        product_name_and_price = [(p.name, p.price) for p in self.products]
 
-        # while copy_product:
-        #     for product in self.products:
-        #         pass
-        # if item not in inflation_list:
-        #     inflation_list.append(item)
+        while copy_product:
+            item = copy_product.popitem()
+            name, price = item[0].name, item[0].price
+            print(name, price)
+            for p_name, p_price in product_name_and_price:
+                if name == p_name and price != p_price:
+                    inflation_list.append(name)
 
-        # print(copy_product.popitem()[0])
-        # return list(filter(lambda x: x.name == copy_product.popitem()[0].name, self.products))
+        return list(set(inflation_list))
 
     def clean_old_comments(self, date):
         for product in self.products:
@@ -87,27 +75,10 @@ class Store:
 
     def get_comments_by_bought_users(self, product):
         list_of_comments_by_bought_users = list()
-        for comment in product.comments:
-            for user in comment.user:
-                for p in user.bought_products:
-                    if p.id == product.id:
-                        list_of_comments_by_bought_users.append(comment)
+        for user in self.users:
+            for user_bought_product in user.bought_products:
+                if user_bought_product.name == product.name:
+                    for comment in user_bought_product.comments:
+                        if user == comment.user:
+                            list_of_comments_by_bought_users.append(comment.text)
         return list_of_comments_by_bought_users
-
-        # for user in self.users:
-        #     for user_product in user.bought_products:
-        #         if user_product.id == product.id:
-        #             return product.comments
-
-
-p1 = Product('name1', 2000, 'c1')
-p2 = Product('name1', 3000, 'c1')
-p3 = Product('name3', 3000, 'c1')
-p4 = Product('name3', 3000, 'c1')
-s1 = Store()
-Store.add_product(s1, p1)
-Store.add_product(s1, p2)
-Store.add_product(s1, p3)
-Store.add_product(s1, p4)
-print(s1.products)
-print(s1.get_inflation_affected_product_names())

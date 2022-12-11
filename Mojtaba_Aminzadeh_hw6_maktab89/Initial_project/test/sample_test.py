@@ -58,7 +58,6 @@ class TestAll(unittest.TestCase):
     def test_remove_product(self):
         p1 = list(self.store_user.products.keys())[0]
         p2 = list(self.store_user.products.keys())[1]
-
         count = self.store_user.products[p1]
         self.store_user.remove_product(p1, 1)
         self.assertEqual(self.store_user.products[p1], count - 1)
