@@ -1,4 +1,4 @@
-class Base:
+class Base():
     sum_ = 0
 
     def __call__(self, number):
@@ -22,7 +22,7 @@ class Add(Base):
 
 
 print(Add(50))  # --> 50
-print(Add(50)(20))  # --> 70
+print(Add(50)(20)(10))  # --> 80
 
 x = Add()
 print(x(10)(20)(-30))  # --> 0

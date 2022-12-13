@@ -1,20 +1,13 @@
-import threading
-
-
-class Singleton:
-    __lock = threading.Lock()
-    __instance = None
+class Test:
 
     @classmethod
-    def instance(cls):
-        if not cls.__instance:
-            with cls.__lock:
-                if not cls.__instance:
-                    cls.__instance = cls()
+    def create(cls):
+        if not hasattr(cls, 'jafar'):
+            return cls.jafar
+    pass
 
 
-A = Singleton.instance()
-B = Singleton.instance()
-print(A)
-print(B)
-
+test = Test()
+test.create()
+print(Test.__dict__)
+print(test.__dict__)

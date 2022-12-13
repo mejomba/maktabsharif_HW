@@ -2,7 +2,8 @@ class Singleton:
     __instance = None
 
     @classmethod
-    def __new__(cls, *args, **kwargs):
+    def __new__(cls, *args):
+        hasattr(cls, 'name')
         if not isinstance(cls.__instance, cls):
             cls.__instance = super().__new__(cls)
         return cls.__instance
@@ -20,4 +21,5 @@ a2 = A('akbar', 30)
 print(a1)
 print(a2)
 print(a1 is a2)
+print(a1 == a2)
 print(id(a1) == id(a2))
