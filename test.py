@@ -1,13 +1,21 @@
-class Test:
+from abc import ABC, abstractmethod
 
-    @classmethod
-    def create(cls):
-        if not hasattr(cls, 'jafar'):
-            return cls.jafar
+
+class Abstract(ABC):
+
+    @abstractmethod
+    def method(self):
+        pass
+
+
+class Parent(Abstract):
+    def method(self):
+        pass
     pass
 
 
-test = Test()
-test.create()
-print(Test.__dict__)
-print(test.__dict__)
+class Child(Parent):
+    pass
+
+p = Parent()
+c = Child()
