@@ -2,4 +2,8 @@
 
 echo -n "directory name: "
 read directory
-mkdir $directory
+if ! [ -d $directory ]; then
+	mkdir $directory
+else
+echo "directory $directory exsits"
+fi
