@@ -1,0 +1,4 @@
+include testpakage/*.png
+include testpakage/*.jpg
+include testpakage/*.jpeg
+include testpakage/*.ttf
