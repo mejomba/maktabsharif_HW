@@ -10,12 +10,9 @@ class Store:
         self.products[product] = self.products.get(product, 0) + amount
 
     def remove_product(self, product, amount=1):
-        number_of_product = self.products.get(product)
+        number_of_product = self.products.get(product, 0)
         if number_of_product < amount:
             raise Exception('Not Enough Products')
-
-        elif number_of_product == 0:
-            self.products.pop(product)
         elif 0 < number_of_product >= amount:
             self.products[product] = number_of_product - amount
 
@@ -60,8 +57,8 @@ class Store:
         product_name_and_price = [(p.name, p.price) for p in self.products]
 
         while copy_product:
-            item = copy_product.popitem()
-            name, price = item[0].name, item[0].price
+            product, _ = copy_product.popitem()
+            name, price = product.name, product.price
             for p_name, p_price in product_name_and_price:
                 if name == p_name and price != p_price:
                     inflation_list.append(name)

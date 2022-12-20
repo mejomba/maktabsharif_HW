@@ -9,3 +9,5 @@ for item in copy:
 del copy
 
 print(lst)
+
+print(None < 1)
