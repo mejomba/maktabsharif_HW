@@ -4,8 +4,8 @@ from django.shortcuts import render, HttpResponse
 
 
 def home(request):
-    return render(request, 'home.html', {'key': 'value'})
-    # return HttpResponse('home')
+    # return render(request, 'home.html', {'key': 'value'})
+    return HttpResponse('home')
 
 
 def profile(request):

@@ -24,6 +24,6 @@ class LoginPageView(View):
             )
             if user is not None:
                 login(request, user)
-                return reverse_lazy('home')
+                return redirect(reverse_lazy('home'))
         message = 'Login failed!'
         return render(request, self.template_name, context={'form': form, 'message': message})
