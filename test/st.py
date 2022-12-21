@@ -1,0 +1,2 @@
+class St():
+    pass

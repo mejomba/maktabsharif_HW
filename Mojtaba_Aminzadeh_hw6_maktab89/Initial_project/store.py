@@ -30,8 +30,8 @@ class Store:
 
     def get_total_asset(self):
         sum_of_price = 0
-        for product in self.products:
-            mac = product.price * self.products.get(product)
+        for product, number_of_product in self.products.items():
+            mac = product.price * number_of_product
             sum_of_price += mac
         return sum_of_price
 
