@@ -4,4 +4,10 @@ from django.shortcuts import render, HttpResponse
 
 
 def home(request):
-    return HttpResponse('salam')
+    return render(request, 'home.html', {'key': 'value'})
+    # return HttpResponse('home')
+
+
+def profile(request):
+    return render(request, 'dashboard/profile.html', {'key': 'value'})
+    # return HttpResponse('profile')
