@@ -1,8 +1,8 @@
 import re
 
 
-text = 'The FirstProgrammingBootcamp'
-
+text = 'TheFirstProgrammingBootcamp'
+# text = "Maktab"
 pattern = r'[^\s]([A-Z])'
 
 for search in re.finditer(pattern, text):
