@@ -1,2 +1,0 @@
-class St():
-    pass
