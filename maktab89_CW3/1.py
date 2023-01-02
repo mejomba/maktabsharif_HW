@@ -1,14 +1,15 @@
-'''Get the index and the value as a tuple for items in the
-list ["hi", 4, 8.99, 'apple', ('t,b','n')].
-Result would look like [(index, value), (index, value)]'''
+def do_multi_times(num):
+    def outer(f):
+        def inner():
+            for i in range(num):
+                f()
+        return inner
+    return outer
 
-data = ["hi", 4, 8.99, 'apple', ('t,b','n')]
-out = [(idx, value) for idx, value in enumerate(data)]
 
-sentence = "on a summer day somner smith went simming in the sun and his red skin stung"
-data = sentence.split(' ')
+@do_multi_times(3)
+def salam():
+    print('hello')
 
-out1 = list(filter(lambda x: len(x)>= 4,data))
-out2 = list(filter(lambda x: len(x)< 4,data))
-print(out1)
-print(out2)
+
+salam()

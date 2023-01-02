@@ -1,28 +1,11 @@
-import contextlib
-import time
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        print(f'area of rectangle: {self.length * self.width}')
 
 
-@contextlib.contextmanager
-def Timer(user_input):
-    if user_input == 'second':
-        start = time.time()
-        yield
-        end = time.time()
-        print(f'time: {end - start}')
-    elif user_input == 'ns':
-        start = time.time_ns()
-        yield
-        end = time.time_ns()
-        print(f'time_ns: {end - start}')
-
-
-user_input = input('Enter "second" of "ns": ')
-with Timer(user_input):
-    li = []
-    for i in range(1000):
-        for j in range(1000):
-            li.append((i, j))
-
-
-with Timer(user_input):
-    x = ((i, j) for i in range(1000) for j in range(1000))
+rect = Rectangle(3, 4)
+rect.area()
