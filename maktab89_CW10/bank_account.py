@@ -8,6 +8,9 @@ class Customer:
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
 
+    # def __str__(self):
+    #     return self.full_name()
+
 
 class BankAccount:
     WAGE_AMOUNT = 600  # کارمزد
@@ -21,7 +24,8 @@ class BankAccount:
         self.__balance = initial_balance  # موجودی حساب
 
     def __check_minimum_balance(self, amount_to_withdraw):  # چک کردن حداقل موجودی
-        return (self.__balance - amount_to_withdraw) >= self.MIN_BALANCE
+        return (self.__balance - amount_to_withdraw) <= self.MIN_BALANCE
+        # 50000 - 46000 <= 5000
 
     def set_owner(self, owner):  # تغییر صاحب حساب
         self.__owner = owner
@@ -30,10 +34,13 @@ class BankAccount:
         return self.__owner
 
     def withdraw(self, amount):  # برداشت وجه
+        if amount <= 0:
+            raise ValueError('amount must be positive')
         if self.__check_minimum_balance(amount):
             raise BankAccount.MinBalanceError("NOT Enough balance to withdraw!")
-        self.__balance -= amount
-        self.__balance -= self.WAGE_AMOUNT   # برداشت کارمزد
+        else:
+            self.__balance -= amount
+            self.__balance -= self.WAGE_AMOUNT   # برداشت کارمزد
 
     def deposit(self, amount):  # واریز وجه
         self.__balance += amount
@@ -48,24 +55,42 @@ class BankAccount:
 
     @classmethod
     def change_wage(cls, new_amount):
-        cls.WAGE_AMOUNT = max(new_amount, 0)   # حداقل مقدار برابر صفر است
+        if isinstance(new_amount, (int, float)):
+            cls.WAGE_AMOUNT = max(new_amount, 0)   # حداقل مقدار برابر صفر است
+        else:
+            raise ValueError('new wage must be digit')
 
     @classmethod
     def change_min_balance(cls, new_amount):
-        cls.MIN_BALANCE = max(new_amount, 0)  # حداقل مقدار برابر صفر است
+        if isinstance(new_amount, (int, float)):
+            cls.MIN_BALANCE = max(new_amount, 0)  # حداقل مقدار برابر صفر است
+        else:
+            raise ValueError('new min balance must be digit')
 
 
+if __name__ == "__main__":
+    akbar = Customer('akbar', 'ahmadi', '0936123456', 'akbar@gmail.com')
+    jafar = Customer('jafar', 'mohamadi', '093612000', 'jafar@gmail.com')
+    akbar_acc = BankAccount(akbar)
+    jafar_acc = BankAccount(jafar)
+
+    print(akbar_acc.get_owner())
+    akbar_acc.set_owner(jafar)
+    print(akbar_acc.get_owner())
+    print(jafar_acc.get_owner())
+    print(akbar_acc)
+    print(jafar_acc)
 # Example:
-akbar = Customer('Akbar', 'Babaii', '09123456789', 'akbar@gmail.com')
-asqar = Customer('Asqar', 'Rezaii', '09123456788', 'asqar@gmail.com')
-
-akbar_account = BankAccount(akbar, 0)
-asqar_account = BankAccount(asqar, 1000000)
-
-akbar_account.deposit(25000)
-print("Akbar Account balance:", akbar_account.get_balance())
-
-akbar_account.withdraw(10000)
-print("Akbar Account balance:", akbar_account.get_balance())
-
-akbar_account.transfer(asqar_account, 10000000)
+# akbar = Customer('Akbar', 'Babaii', '09123456789', 'akbar@gmail.com')
+# asqar = Customer('Asqar', 'Rezaii', '09123456788', 'asqar@gmail.com')
+#
+# akbar_account = BankAccount(akbar, 0)
+# asqar_account = BankAccount(asqar, 1000000)
+#
+# akbar_account.deposit(25000)
+# print("Akbar Account balance:", akbar_account.get_balance())
+#
+# akbar_account.withdraw(10000)
+# print("Akbar Account balance:", akbar_account.get_balance())
+#
+# akbar_account.transfer(asqar_account, 10000000)
