@@ -7,9 +7,9 @@ def is_connect(host):
     res = False
 
     if 'nt' in os.name.lower():
-        exit_code = os.system(f"ping -n 1 {host}")
+        exit_code = os.system(f"ping -n 1 {host} > clear;rm clear")
     else:
-        exit_code = os.system(f"ping -c 1 {host}")
+        exit_code = os.system(f"ping -c 1 {host} > clear;rm clear")
 
     if exit_code == 0:
         res = True
