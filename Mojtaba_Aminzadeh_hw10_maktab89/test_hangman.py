@@ -32,15 +32,15 @@ class TestHangmanGame(unittest.TestCase):
     def test_get_word_from_api_request_exception(self):
         self.assertFalse(self.word_bank.get_word())
 
-    # @unittest.skipIf(requests.get('https://api.api-ninjas.com/v1/randomword').status_code != 200, 'connection OK')
-    # def test_pic_word(self):
-    #     """if can't connect to api server"""
-    #     print('pick word')
-    #     self.word_bank.pick_topic()
-    #     self.assertIn(self.word_bank.pick_word(),
-    #                   [f'Word is {len(item)} letters long.\n{["_" for word in item]}'
-    #                   for item in Bank.colours + Bank.animals]
-    #                   )
+    @unittest.skipIf(utils.request_to_api().status_code == 200, 'test_pic_word => connection OK')
+    def test_pic_word(self):
+        """if can't connect to api server"""
+        print('pick word')
+        self.word_bank.pick_topic()
+        self.assertIn(self.word_bank.pick_word(),
+                      [f'Word is {len(item)} letters long.\n{["_" for word in item]}'
+                      for item in Bank.colours + Bank.animals]
+                      )
 
 
 if __name__ == "__main__":

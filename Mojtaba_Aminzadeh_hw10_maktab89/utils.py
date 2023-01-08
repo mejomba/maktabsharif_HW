@@ -20,3 +20,4 @@ def request_to_api():
     return requests.get(f"{Bank.api}",
                         headers={'X-Api-Key': f"{Bank.api_key}"},
                         params={type: 'noun'})
+
