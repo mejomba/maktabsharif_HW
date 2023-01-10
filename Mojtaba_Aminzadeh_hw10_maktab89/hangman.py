@@ -57,7 +57,7 @@ class Player:
         self.guess_validation_incomplete = True
 
     def guess(self):
-        self.answer = input('Guess a letter: ')
+        self.answer = input('Guess a letter: ').lower()
 
 
 class Processes:
@@ -66,7 +66,7 @@ class Processes:
 
     @staticmethod
     def validate_user_input(player):
-        expression = re.match(r'^[A-z]$', player.answer)
+        expression = re.match(r'^[a-z]$', player.answer)
         if expression is None or len(player.answer) > 1:
             return player.guess_validation_incomplete
         else:
