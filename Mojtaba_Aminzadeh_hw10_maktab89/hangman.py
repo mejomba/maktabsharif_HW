@@ -11,7 +11,7 @@ class Bank:
     topics = {'Colours': colours, 'Animals': animals}
     api = 'https://api.api-ninjas.com/v1/randomword'
     api_key = 'FRkfTIwrgLLk+4TIMd+NMA==m6isKOfXzCLPgdGz'
-    # api_key = 'FRkfTIwrgLLk+4TIMd+NMA==m6isKOfXzCLPgdG' # wrong api_kye for test
+    # api_key = 'FRkfTIwrgLLk+4TIMd+NMA==m6isKOfXzCLPgdG'  # wrong api_kye for test
 
     def __init__(self):
         self.current_topic = ''
@@ -51,8 +51,8 @@ class Bank:
 
 
 class Player:
-    def __init__(self):
-        self.lives = None
+    def __init__(self, current_word):
+        self.lives = 3 * len(current_word)
         self.answer = ''
         self.guess_validation_incomplete = True
 
@@ -89,13 +89,12 @@ class Processes:
                     bank.current_word_display[i] = player.answer
                     bank.letters_guessed_counter += 1
                     bank.letters_already_guessed.append(player.answer)
-                    return '\nNice!'
+            return '\nNice!'
 
 
 if __name__ == "__main__":
     while True:
         word_bank = Bank()
-        player1 = Player()
         game = Processes()
 
         if word_bank.get_word():
@@ -103,7 +102,9 @@ if __name__ == "__main__":
         else:
             print(word_bank.pick_topic())
             print(word_bank.pick_word())
-        player1.lives = 3 * len(word_bank.current_word)
+
+        player1 = Player(word_bank.current_word)
+        # player1.lives = 3 * len(word_bank.current_word)
         print(f'you have {player1.lives} lives')
 
         while word_bank.not_solved and player1.lives > 0:

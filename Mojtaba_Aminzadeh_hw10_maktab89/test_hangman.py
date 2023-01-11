@@ -41,13 +41,13 @@ class TestHangmanBank(unittest.TestCase):
                       for item in Bank.colours + Bank.animals]
                       )
 
-    def test_check_solve_True(self):
+    def test_check_not_solve_True(self):
         self.word_bank.letters_guessed_counter = 1
         self.word_bank.current_word = 'abc'
         self.word_bank.check_solve()
         self.assertTrue(self.word_bank.not_solved)
 
-    def test_check_solve_False(self):
+    def test_check_not_solve_False(self):
         self.word_bank.letters_guessed_counter = 3
         self.word_bank.current_word = 'abc'
         self.word_bank.check_solve()
@@ -56,19 +56,24 @@ class TestHangmanBank(unittest.TestCase):
 
 class TestHangmanPlayer(unittest.TestCase):
     def setUp(self) -> None:
-        self.player1 = Player()
+        self.bank = Bank()
+        self.bank.current_word = 'abc'
+        self.player1 = Player(self.bank.current_word)
 
     def test_guess(self):
-        print(f'{RED}get single character for test.{END}')
+        print(f'{RED}input single character for test.{END}')
         self.player1.guess()
         self.assertEqual(self.player1.answer, self.player1.answer.lower())
+
+    def test_player_lives_x3(self):
+        self.assertEqual(self.player1.lives, 9)
 
 
 class TestHangmanProcesses(unittest.TestCase):
     def setUp(self) -> None:
         self.processes = Processes()
         self.bank = Bank()
-        self.player1 = Player()
+        self.player1 = Player(self.bank.current_word)
 
     def test_validate_user_input(self):
         self.player1.answer = ''
