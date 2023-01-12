@@ -1,17 +1,19 @@
-import unittest
+data = [1, 2, 3, 4]
 
 
-class CustomAssertions:
-    def my_custom_assertion(self):
-        # check some condition or ...
-        raise AssertionError('this is my custom assertion')
+def iterator(iterable):
+    if len(iterable) > 0:
+        yield iterable[0]
+        yield from iterator(iterable[1:])
 
 
-class TestCase(unittest.TestCase, CustomAssertions):
+print(list(iterator(data)))
+for item in iterator(data):
+    print(item)
 
-    def test_my_assertion(self):
-        self.my_custom_assertion()
 
+# a = {7: (dict(), 7)}
+# print(a[7][0])
 
-if __name__ == '__main__':
-    unittest.main()
+x = dict().setdefault(7, 'default')
+print(x[7])
