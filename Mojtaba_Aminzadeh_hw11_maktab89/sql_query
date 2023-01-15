@@ -1,0 +1,27 @@
+1============
+DELETE FROM Customer
+WHERE Country='Spain';
+
+2============
+UPDATE 'Order'
+SET OrderDate='2021-06-20', ShipCountry='Germany'
+WHERE CustomerId='VICTE';
+
+3============
+INSERT INTO Shipper (Id, CompanyName, Phone) VALUES
+(3, 'company 1', '(123) 111-5422'),
+(4, 'company 2', '(456) 345-2456'),
+(5, 'company 3', '(789) 789-2247');
+
+4============
+SELECT * FROM Product
+WHERE UnitPrice<50 AND Discontinued=1;
+
+5============
+CREATE TABLE Transfer (
+Id INT PRIMARY KEY NOT NULL,
+transfer_method CHAR(50) DEFAULT 'Post by'
+);
+
+ALTER TABLE 'Order' ADD COLUMN Transfer_id INTEGER REFERENCES Transfer(Id);
+
