@@ -1,19 +1,20 @@
-data = [1, 2, 3, 4]
+import unittest
 
 
-def iterator(iterable):
-    if len(iterable) > 0:
-        yield iterable[0]
-        yield from iterator(iterable[1:])
+def func():
+    5/0
+    try:
+        x = 5/0
+    except ZeroDivisionError:
+        return 'zero'
 
 
-print(list(iterator(data)))
-for item in iterator(data):
-    print(item)
+# print(func())
+
+class TestExcepiont(unittest.TestCase):
+    def test_func(self):
+        self.assertRaises(ZeroDivisionError, func)
 
 
-# a = {7: (dict(), 7)}
-# print(a[7][0])
-
-x = dict().setdefault(7, 'default')
-print(x[7])
+if __name__ == "__main__":
+    unittest.main()

@@ -1,9 +1,9 @@
 import requests
 from hangman import Bank
+import os
 
 
 def is_connect(host):
-    import os
     res = False
 
     if 'nt' in os.name.lower():

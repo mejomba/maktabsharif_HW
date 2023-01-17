@@ -112,6 +112,7 @@ if __name__ == "__main__":
                 player1.guess()
                 if game.validate_user_input(player1):
                     print('\nPlease guess a single alphabet')
+                    player1.guess_validation_incomplete = False
                 print(game.check_answer_update_lives(word_bank, player1))
                 print(word_bank.current_word_display)
             player1.guess_validation_incomplete = True
