@@ -20,8 +20,9 @@ WHERE UnitPrice<50 AND Discontinued=1;
 5============
 CREATE TABLE Transfer (
 Id INT PRIMARY KEY NOT NULL,
-transfer_method CHAR(50) DEFAULT 'Post by'
+transfer_method CHAR(50)
 );
 
 ALTER TABLE 'Order' ADD COLUMN Transfer_id INTEGER REFERENCES Transfer(Id);
+ALTER TABLE 'Order' ADD COLUMN Transfer_id3 INTEGER REFERENCES Transfer(Id) DEFAULT 'Post By';
 

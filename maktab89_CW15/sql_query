@@ -1,0 +1,22 @@
+==========================
+create database city_hospital;
+==========================
+create table hospital (
+hospital_id serial primary key,
+hospital_name text);
+==========================
+create table room (room_id serial primary key, room_name text, hospital_id integer references hospital(hospital_id));
+==========================
+create table bed (bed_id serial primary key, bed_name text, room_id integer references room(room_id));
+==========================
+create table ill (ill_id serial primary key, first_name text, last_name text, bed_id integer references bed(bed_id));
+==========================
+create table visit (visit_id serial primary key, visit_reception_date timestamp, visit_discharge_date timestamp, ill_id integer references ill(ill_id));
+==========================
+create table doctor (doctor_id serial primary key, doctor_name varchar(80));
+==========================
+alter table visit add column doctor_id integer;
+==========================
+alter table visit add constraint visit_fk_doctor_id foreign key (doctor_id) references doctor(doctor_id);
+==========================
+create table hospital_doctor (doctor_id integer references doctor(doctor_id), hospital_id integer references hospital(hospital_id));

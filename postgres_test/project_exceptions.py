@@ -1,0 +1,2 @@
+class InsertDoctorException(Exception):
+    pass
