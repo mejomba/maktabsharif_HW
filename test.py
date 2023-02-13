@@ -1,17 +1,3 @@
-change without conflict
-x = {}
-x[3] = x[3] = (x, 3)
+import _md5
 
-print(x)
-print(x[3][0])
-print(x[3][0][3][0])
-print(x[3][0][3][0][3][0])
-print(x[3][0][3][0][3][0][3][0])
-print(x[3][0][3][0][3][0][3][0][3][0])
-print(x[3][0][3][0][3][0][3][0][3][0][3][0])
-print(x[3][0][3][0][3][0][3][0][3][0][3][0][3][0])
-print(x[3][0][3][0][3][0][3][0][3][0][3][0][3][0][3][0])
-
-
-# x[7] = x[7] = (x := {}, 7)
-this line change and not commit
+print(len(_md5.md5('dsfdsf'.encode('utf-8')).hexdigest()))
