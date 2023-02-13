@@ -1,3 +1,8 @@
-import _md5
+from fastapi import FastAPI
 
-print(len(_md5.md5('dsfdsf'.encode('utf-8')).hexdigest()))
+app = FastAPI()
+
+
+@app.get('/')
+def hello():
+    return {'key': 'val'}
