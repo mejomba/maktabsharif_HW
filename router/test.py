@@ -1,5 +1,5 @@
 from router import Router, Route, Callback
-from test.views import *
+from App.views import *
 from utils import get_digit
 
 # router = Router(
