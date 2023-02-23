@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:1@localhost/learn_fastapi'
-SQLALCHEMY_DATABASE_URL = "sqlite:///task.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///book.db"
 
 engin = create_engine(SQLALCHEMY_DATABASE_URL)
 sessionlocal = sessionmaker(autocommit=False, autoflush=False, bind=engin)

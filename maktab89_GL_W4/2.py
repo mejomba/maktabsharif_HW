@@ -51,7 +51,7 @@ class OsUtils:
 # OsUtils.copy_file('test2.py', 'quize/')
 # OsUtils.generate_directory('', 'jafar')
 OsUtils.file_directory_list('')
-# OsUtils.edit_name('salam.py', '1.py')
+# OsUtils.edit_name('salam.py', '01_simple_get_post.py')
 # OsUtils.delete_directory('../jafar')
 
 
