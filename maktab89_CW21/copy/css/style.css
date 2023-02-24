@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(202, 242, 230);
+}
+
+.form-control {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+}
+
+.form-control input {
+    height: 25px;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+.form-control textarea {
+    border-radius: 4px;
+    padding: 10px;
+}
+.form-control textarea:focus {
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(209, 209, 253);
+}
+.form-control select {
+    height: 25px;
+    border-radius: 4px;
+}
+
+.form-control input:focus {
+    background-color: rgb(209, 209, 253);
+}
+.wraper {
+    margin: auto;
+    width: 60%;
+    background-color: transparent;
+    padding: 10px;
+    border: 1px solid rebeccapurple;
+    border-radius: 5px;
+}
+
+.form-header {
+    text-align: center;
+    padding: 20px;
+}

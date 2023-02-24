@@ -1,0 +1,111 @@
+@font-face {
+    font-family: shabnam;
+    src: url(../fonts/shabnam/Shabnam.ttf);
+}
+@font-face {
+    font-family: shabnam-l;
+    src: url(../fonts/shabnam/Shabnam-Light.ttf);
+}
+@font-face {
+    font-family: shabnam-b;
+    src: url(../fonts/shabnam/Shabnam-Bold.ttf);
+}
+* {
+    font-family: shabnam;
+}
+html {
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: shabnam-b;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+}
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =================== */
+.form-control {
+    margin: 10px 0;
+    width: 100%;
+}
+input {
+    font-family: shabnam-l;
+}
+.form-control input {
+    width:96%;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    padding: 0 2%;
+    margin: auto;
+}
+.form-control textarea {
+    border-radius: 4px;
+    padding: 2%;
+    width: 96%;
+    font-family: shabnam-l;
+}
+.form-control textarea:focus {
+    background-color: rgb(245, 245, 245);
+    border: none;
+}
+.form-control select {
+    height: 35px;
+    border-radius: 4px;
+    width: 100%;
+    background-color: white;
+    padding: 0 2%;
+    font-family: shabnam-l;
+}
+
+.form-control input:focus {
+    background-color: rgb(245, 245, 245);
+    border: none;
+}
+.form-wrapper {
+    margin: 10px;
+}
+/* =================== */
+
+.submit-btn {
+    padding: 15px 150px;
+    border-radius: 20px;
+    background-color: chartreuse;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: green;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.item-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    align-items: center;
+}
+.item1 {
+    text-align: center;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+}
+.logo img {
+    width: 150px;
+}
