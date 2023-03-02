@@ -1,0 +1,60 @@
+@font-face {
+    font-family: shabnam;
+    src: url('fonts/shabnam/Shabnam-Light.ttf');
+}
+@font-face {
+    font-family: shabnam-b;
+    src: url('fonts/shabnam/Shabnam-Bold.ttf');
+}
+
+body {
+    background-color: blueviolet;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: shabnam-b;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: shabnam;
+}
+
+.container {
+    text-align: center;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    width: 80%;
+    margin: 2rem auto;
+    background-color: aliceblue;
+}
+
+.form-header {
+    line-height: 3rem;
+}
+
+.form-container {
+    /* background-color: chocolate; */
+}
+
+label {
+    font-size: 0.87rem;
+}
+
+input, select {
+    margin: 0.5rem 0 1.25rem 0;
+    width:80%;
+    height: 2rem;
+    padding-right: 1rem;
+    border: 1px solid;
+    border-radius: 0.5rem;   
+}
+
+textarea{
+    margin: 0.5rem 0 1.25rem 0;
+    width:80%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid;
+}
